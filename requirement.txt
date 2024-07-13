@@ -1,0 +1,7 @@
+cffi
+cryptography
+mysql-connector-python
+prettytable
+pycparser
+pycryptodome
+wcwidth
