@@ -5,7 +5,7 @@ from getpass import getpass
 import mysql.connector
 from first_display_message import first_display_message
 from dbconfig import dbconfig  # Assuming this imports your database connection function
-
+from valid.validation import validate_input
 def generateDeviceSecret(length=12):
     return ''.join(random.choices(string.ascii_letters + string.digits + string.punctuation, k=length))
 
@@ -20,7 +20,21 @@ def checkConfig():
          pass
     else:
         first_display_message()
-        managerPassword = getpass("Enter initial password for PASSWORD MANAGER: ")
+        # Password Validation 
+        attempts = 0  # Counter for attempts
+        while attempts < 3:
+            valid = getpass("Enter initial password for PASSWORD MANAGER: ")
+            managerPassword = validate_input(valid)  # Validation File
+            if managerPassword:
+                break
+            else:
+                print(f"The password must be 6+ characters with at least one uppercase letter, one lowercase letter, one digit, and one special symbol")
+                attempts += 1
+        
+        if attempts == 3:
+            print("Maximum attempts reached. Exiting.")
+            exit()
+
         Confirm_managerPassword = getpass("Confirm password for PASSWORD MANAGER: ")
         if Confirm_managerPassword == managerPassword:
             try:
