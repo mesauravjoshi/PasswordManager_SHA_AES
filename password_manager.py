@@ -18,7 +18,7 @@ def main_box():
             ================================================
     ''')
 
-    enter_num = int(input("Enter your choice: "))
+    enter_num = input("Enter your choice: ")
     return enter_num
 
 if __name__ == "__main__":
@@ -29,7 +29,7 @@ if __name__ == "__main__":
     while True:
         enter_num = main_box()
 
-        if enter_num == 1:
+        if enter_num == "1":
 
             cursor.execute("SELECT masterkey_hashed, random_key FROM secrets;")
             row = cursor.fetchone()
@@ -40,7 +40,7 @@ if __name__ == "__main__":
                 rk = row[1]  # random_key
                 
             addentry(mydb,cursor,mp,rk)
-        elif enter_num ==2:
+        elif enter_num =="2":
             
             cursor.execute("SELECT masterkey_hashed, random_key FROM secrets;")
             row = cursor.fetchone()
@@ -60,11 +60,11 @@ if __name__ == "__main__":
             else:
                 print(f"           User '{uName}' not found.")            
 
-        elif enter_num == 3:
+        elif enter_num == "3":
             display_entries()
-        elif enter_num == 4:
+        elif enter_num == "4":
             delete_entries()
-        elif enter_num == 5:
+        elif enter_num == "5":
             print(f"            Bye")
             exit()
         else:
