@@ -5,7 +5,9 @@ from Crypto.Hash import SHA512
 from getpass import getpass
 # my files 
 from encryp_decryp import encrypt_message
-# from dbconfig import dbconfig
+from valid.validation import validate_input
+from valid.user import validate_username
+from valid.site import validate_site
 
 def computeMasterkey(mp,rk):
     """
@@ -21,9 +23,24 @@ def addentry(mydb,cursor,mp,rk):
     Add a new entry to the password manager database.
     """
     print(f"            Creating new entry...")
-    username = input("Enter username : ")
-    site = input("Enter site : ")
-    password = getpass("Enter password : ")
+    username = validate_username()   #  user.py
+    
+    site = validate_site()   #  site.py
+    
+    # Password Validation 
+    attempts = 0  # Counter for attempts
+    while attempts < 3:
+        valid = getpass("Enter password: ")
+        password = validate_input(valid)  # Validation File
+        if password:
+            break
+        else:
+            print(f"The password must be 6+ characters with at least one uppercase letter, one lowercase letter, one digit, and one special symbol")
+            attempts += 1
+    
+    if attempts == 3:
+        print("Maximum attempts reached. Exiting.")
+        exit()
     confirm_passsword = getpass("Confirm password : ")
     if confirm_passsword == password:
         symKey = computeMasterkey(mp,rk)
@@ -41,6 +58,5 @@ def addentry(mydb,cursor,mp,rk):
         print(f"            Entry added succesfully .........")
     else :
         print(f"            Retry.. Passwords do not match.")
-        
     
     return True
