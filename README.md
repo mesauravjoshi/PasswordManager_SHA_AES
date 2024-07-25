@@ -17,7 +17,7 @@ Run the following command in PowerShell or Command Prompt to install the necessa
 Open `dbconfig.py` in any text editor and locate the `dbconfig()` function.
     Replace `'yourusername'` and `'yourpassword'` with your actual MySQL username and password. 
 
-![App Screenshot](https://github.com/mesauravjoshi/PasswordManager_SHA_AES/blob/main/screenshot/dbconfig.png)
+![App Screenshot](https://raw.githubusercontent.com/mesauravjoshi/PasswordManager_SHA_AES/main/screenshot/dbconfig.png)
 
 
 ###  3. Run the Application:
