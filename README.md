@@ -17,6 +17,9 @@ Run the following command in PowerShell or Command Prompt to install the necessa
 Open `dbconfig.py` in any text editor and locate the `dbconfig()` function.
     Replace `'yourusername'` and `'yourpassword'` with your actual MySQL username and password. 
 
+![App Screenshot](file:///C:/Users/mesau/Pictures/Screenshots/Screenshot%20(24).png)
+
+
 ###  3. Run the Application:
     
 Execute the following command in PowerShell or Command Prompt to start the password manager application:
