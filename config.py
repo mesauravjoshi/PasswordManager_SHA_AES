@@ -28,7 +28,7 @@ def checkConfig():
             if managerPassword:
                 break
             else:
-                print(f"The password must be 6+ characters with at least one uppercase letter, one lowercase letter, one digit, and one special symbol")
+                print(f"\nError: The password must be 6+ characters with at least one uppercase letter, one lowercase letter, one digit, and one special symbol\n")
                 attempts += 1
         
         if attempts == 3:
