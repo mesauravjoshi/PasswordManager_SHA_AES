@@ -35,7 +35,7 @@ def addentry(mydb,cursor,mp,rk):
         if password:
             break
         else:
-            print(f"The password must be 6+ characters with at least one uppercase letter, one lowercase letter, one digit, and one special symbol")
+            print(f"Error: The password must be 6+ characters with at least one uppercase letter, one lowercase letter, one digit, and one special symbol")
             attempts += 1
     
     if attempts == 3:
