@@ -3,7 +3,7 @@ def validate_username():
     while attempts < 3:
         username = input("Enter a username: ")
         if username.isdigit():
-            print("Username should not be only numeric. Please enter a valid username.")
+            print("Error: Username should not be only numeric. Please enter a valid username.")
             attempts += 1
         else:
             return username
